@@ -2,19 +2,19 @@
 import sys
 import codecs
 
-print("### CharsetFixer ###")
+print("### CharFix v0.1 ###")
 
 #print('Number of arguments: {}'.format(len(sys.argv)))
 #print('Argument(s) passed: {}'.format(str(sys.argv)))
 # Get the arguments from the command-line except the filename
 #argv = sys.argv[1:]
 # Get just the first argument
-arg1 = sys.argv[1]
-
-# print('First argument: ', arg1)
-
-filename = arg1
+filename    = sys.argv[1]
 newfilename = filename+".org"
+output      = ""
+newline     = ""
+countLines  = 0
+countChars  = 0
 
 try:
     file = open(filename, encoding="utf8")
@@ -24,16 +24,9 @@ except:
     quit()
 
 # Translation table:
-#ê ¹ œ ³ ¿ Ÿ æ ñ Ê ¥ Œ £ ¯ - Æ Ñ
-#ę ą ś ł ż ź ć ń Ę Ą Ś Ł Ż Ź Ć Ń
-
 source_chars = "ê ¹ œ ³ ¿ Ÿ æ ñ Ê ¥ Œ £ ¯ Ź Æ Ñ"
 target_chars = "ę ą ś ł ż ź ć ń Ę Ą Ś Ł Ż Ź Ć Ń"
-output = ""
-newline = ""
 translation = output.maketrans(source_chars, target_chars)
-countLines = 0
-countChars = 0
 
 print("Translation begins...", end='')
 for line in file:
