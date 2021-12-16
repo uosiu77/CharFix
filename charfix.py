@@ -3,6 +3,7 @@ import sys
 import codecs
 
 print("### CharFix v0.1 ###")
+print("### maciej.maciejewski@gmail.com ###")
 
 #print('Number of arguments: {}'.format(len(sys.argv)))
 #print('Argument(s) passed: {}'.format(str(sys.argv)))
@@ -32,7 +33,6 @@ print("Translation begins...", end='')
 for line in file:
     newline = line.translate(translation)  
     output += newline
-    #print('.', end='')
     countLines += 1
     
     #liczenie zmian w linii
@@ -48,13 +48,12 @@ print("Changed chars: ", countChars)
 
 print("Renaming original file to ", newfilename)
 
-#rename original file to .old
+#rename original file to .org
 os.rename(filename, newfilename)
 
 with codecs.open(filename,"w+", "utf-8-sig") as newfile:
-    # print("Opened new file: ", filename)
     newfile.write(output)
     print("Saving corrected file: ", filename)
     newfile.close   
 
-print("### CharsetFixer Done ###")    
+print("### CharFix Done ###")    
