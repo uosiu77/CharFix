@@ -13,9 +13,8 @@ arg1 = sys.argv[1]
 
 # print('First argument: ', arg1)
 
-#filename = "napisy.srt"
 filename = arg1
-newfilename = filename+".old"
+newfilename = filename+".org"
 
 try:
     file = open(filename, encoding="utf8")
